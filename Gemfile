@@ -1,79 +1,90 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.3.8'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.1'
+# Rails: Latest stable version for compatibility with Ruby 3.3
+gem 'rails', '~> 7.0.6'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+gem 'sprockets-rails', '~> 4.0'
 
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+# Use PostgreSQL as the database for Active Record
+gem 'pg', '~> 1.4'
 
-gem 'devise'
-# Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
+gem 'devise', '~> 4.8'  # Devise version supporting Rails 7.x
 
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
+# Use Puma as the web server [https://github.com/puma/puma]
+gem 'puma', '~> 6.1'  # Latest stable version
 
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+# Use JavaScript with ESM import maps
+gem 'importmap-rails', '~> 1.0'
 
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem 'stimulus-rails'
+# Hotwire's SPA-like page accelerator
+gem 'turbo-rails', '~> 1.0'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'cancancan'
-gem 'jbuilder'
+# Hotwire's modest JavaScript framework
+gem 'stimulus-rails', '~> 1.0'
 
-# Use Redis adapter to run Action Cable in production
+# JSON APIs with ease [https://github.com/rails/jbuilder]
+gem 'jbuilder', '~> 2.0'
+
+# Authorization gem for controlling user access
+gem 'cancancan', '~> 3.0'  # Latest stable version
+
+# Optional: Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# Optional: Kredis for higher-level data types in Redis
 # gem "kredis"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# Use Active Model has_secure_password (for handling passwords securely)
 # gem "bcrypt", "~> 3.1.7"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows compatibility for tzinfo-data
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
+gem 'bootsnap', require: false, '~> 1.7'
 
-gem 'font-awesome-sass'
+# Font Awesome for icons
+gem 'font-awesome-sass', '~> 5.15'
 
-# Use Sass to process CSS
-# gem "sassc-rails"
+# Optional: Sass for CSS processing (comment out if not used)
+# gem "sassc-rails", "~> 2.0"
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Active Storage image transformations (comment out if not needed)
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'database_cleaner'
+  # Debugging gem
+  gem 'database_cleaner', '~> 2.0'
+
+  # Debugging gem for development
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  # gem 'rails-controller-testing'
-  gem 'rspec-rails'
+
+  # Testing: RSpec for Rails
+  gem 'rspec-rails', '~> 5.0'
+
+  # Optional: Controller testing for RSpec
+  # gem 'rails-controller-testing', '~> 1.0'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
+  gem 'web-console', '~> 4.2'
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  # Speed up commands on slow machines / big apps
+  # gem "spring", "~> 3.1"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  # System testing
+  gem 'capybara', '~> 3.36'
+
+  # Selenium WebDriver for browser automation
+  gem 'selenium-webdriver', '~> 4.0'
+
+  # Webdrivers for managing browser drivers
+  gem 'webdrivers', '~> 5.0'
 end
